@@ -21,6 +21,7 @@ import com.models.CategoryEntity;
 public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       CategoryEntityDao dao = new CategoryEntityDaoImpl();
+      CategoryEntity entity = new CategoryEntity();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,7 +44,7 @@ public class CategoryServlet extends HttpServlet {
 
 		switch (action) {
 		case "create":
-			String name = request.getParameter("author_name").toString();
+			String name = request.getParameter("author_name");
 
 			System.out.println("Name : " + name);
 
@@ -61,6 +62,7 @@ public class CategoryServlet extends HttpServlet {
 		case "getAll":
 
 			List<CategoryEntity> allAuthors = dao.getCategorys();
+			System.out.println("Author Name : " + entity.getName());
 
 			jsonlist = gson.toJson(allAuthors);
 

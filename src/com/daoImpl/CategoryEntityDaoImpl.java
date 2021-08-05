@@ -10,16 +10,14 @@ import org.hibernate.Transaction;
 
 import com.Connection.Connections;
 import com.dao.CategoryEntityDao;
-import com.models.AuthorEntitiy;
 import com.models.CategoryEntity;
 
 public class CategoryEntityDaoImpl implements CategoryEntityDao{
-
+	static SessionFactory factory = Connections.getConnection();
 	@Override
 	public Integer addCategory(CategoryEntity category) {
 		Integer roll = null;
 		try {
-			SessionFactory factory = Connections.getConnection();
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
@@ -38,7 +36,7 @@ public class CategoryEntityDaoImpl implements CategoryEntityDao{
 		List<CategoryEntity> list = new ArrayList<>();
 		try {
 			
-			SessionFactory factory = Connections.getConnection();
+			
 			
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -56,7 +54,7 @@ public class CategoryEntityDaoImpl implements CategoryEntityDao{
 	public Integer deleteCategory(CategoryEntity category) {
 		Integer roll = null;
 		try {
-			SessionFactory factory = Connections.getConnection();
+			
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
@@ -74,7 +72,7 @@ public class CategoryEntityDaoImpl implements CategoryEntityDao{
 	public CategoryEntity getCategoryById(int id) {
 		CategoryEntity a = null;
 		try {
-			SessionFactory factory = Connections.getConnection();
+			
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
@@ -92,7 +90,7 @@ public class CategoryEntityDaoImpl implements CategoryEntityDao{
 	public Integer updateCategory(CategoryEntity category) {
 		Integer roll = null;
 		try {
-			SessionFactory factory = Connections.getConnection();
+			
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
@@ -110,7 +108,7 @@ public class CategoryEntityDaoImpl implements CategoryEntityDao{
 	public CategoryEntity getCategoryByName(String name) {
 		CategoryEntity author = null;
 		try {
-			SessionFactory factory = Connections.getConnection();
+			
 			Session session = factory.openSession();
 
 			Transaction transaction = session.beginTransaction();
